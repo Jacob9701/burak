@@ -1,42 +1,42 @@
-function getSquareNumbers(numbers: number[]) {
-  const result = [];
+// function getSquareNumbers(numbers: number[]) {
+//   const result = [];
 
-  for (let i = 0; i < numbers.length; i++) {
-    const obj = {
-      number: numbers[i],
-      square: numbers[i] * numbers[i],
-    };
+//   for (let i = 0; i < numbers.length; i++) {
+//     const obj = {
+//       number: numbers[i],
+//       square: numbers[i] * numbers[i],
+//     };
 
-    result.push(obj);
-  }
+//     result.push(obj);
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
-const answer = getSquareNumbers([4, 5, 6, 7]);
+// const answer = getSquareNumbers([4, 5, 6, 7]);
 
-console.log(answer);
-
-
+// console.log(answer);
 
 
 
-function palindromCheck(word: string): boolean {
-  let reversed = "";
 
-  for (let i = word.length - 1; i >= 0; i--) {
-    reversed += word[i];
-  }
 
-  if (word === reversed) {
-    return true;
-  } else {
-    return false;
-  }
-}
+// function palindromCheck(word: string): boolean {
+//   let reversed = "";
 
-console.log(palindromCheck("non")); // true
-console.log(palindromCheck("kitob")); // false
+//   for (let i = word.length - 1; i >= 0; i--) {
+//     reversed += word[i];
+//   }
+
+//   if (word === reversed) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
+// console.log(palindromCheck("non")); // true
+// console.log(palindromCheck("kitob")); // false
 
 
 
@@ -73,3 +73,23 @@ class Errors extends Error {
 }
 
 export default Errors;
+
+
+
+//O-TASK
+
+function calculateSumOfNumbers(arr: any[]): number {
+  let sum = 0;
+
+  for (let item of arr) {
+    if (typeof item === "number") {
+      sum += item;
+    }
+  }
+
+  return sum;
+}
+
+console.log(
+  calculateSumOfNumbers([5, "hello", false, { age: 20 }, 15, null, 25])
+);
