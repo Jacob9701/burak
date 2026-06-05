@@ -95,23 +95,53 @@
 // );
 
 
-function objectToArray(obj: { [key: string]: any }): [string, any][] {
-  const result: [string, any][] = [];
+// function objectToArray(obj: { [key: string]: any }): [string, any][] {
+//   const result: [string, any][] = [];
 
-  for (const key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      result.push([key, obj[key]]);
-    }
-  }
+//   for (const key in obj) {
+//     if (obj.hasOwnProperty(key)) {
+//       result.push([key, obj[key]]);
+//     }
+//   }
 
-  return result;
+//   return result;
+// }
+
+// const laptop = {
+//   brand: "Apple",
+//   model: "MacBook Air",
+//   year: 2024,
+//   price: 1500,
+// };
+
+// console.log(objectToArray(laptop));
+
+
+
+
+//Q-TASK
+
+function hasProperty(obj: object, key: string): boolean {
+  return key in obj;
 }
 
-const laptop = {
-  brand: "Apple",
-  model: "MacBook Air",
-  year: 2024,
-  price: 1500,
-};
+// Testlar
+console.log(
+  hasProperty(
+    {
+      brand: "Apple",
+      model: "MacBook Pro",
+    },
+    "model"
+  )
+); // true
 
-console.log(objectToArray(laptop));
+console.log(
+  hasProperty(
+    {
+      brand: "Apple",
+      model: "MacBook Pro",
+    },
+    "year"
+  )
+); // false
