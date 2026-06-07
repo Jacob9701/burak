@@ -121,27 +121,42 @@
 
 //Q-TASK
 
-function hasProperty(obj: object, key: string): boolean {
-  return key in obj;
+// function hasProperty(obj: object, key: string): boolean {
+//   return key in obj;
+// }
+
+// // Testlar
+// console.log(
+//   hasProperty(
+//     {
+//       brand: "Apple",
+//       model: "MacBook Pro",
+//     },
+//     "model"
+//   )
+// ); // true
+
+// console.log(
+//   hasProperty(
+//     {
+//       brand: "Apple",
+//       model: "MacBook Pro",
+//     },
+//     "year"
+//   )
+// ); // false
+
+
+//R-TASK
+
+function multiplyNumbers(input: string): number {
+  const numbers = input.split("*");
+
+  const first = Number(numbers[0]);
+  const second = Number(numbers[1]);
+
+  return first * second;
 }
 
-// Testlar
-console.log(
-  hasProperty(
-    {
-      brand: "Apple",
-      model: "MacBook Pro",
-    },
-    "model"
-  )
-); // true
-
-console.log(
-  hasProperty(
-    {
-      brand: "Apple",
-      model: "MacBook Pro",
-    },
-    "year"
-  )
-); // false
+const result = multiplyNumbers("6*7");
+console.log(result);
