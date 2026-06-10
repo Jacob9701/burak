@@ -149,14 +149,34 @@
 
 //R-TASK
 
-function multiplyNumbers(input: string): number {
-  const numbers = input.split("*");
+// function multiplyNumbers(input: string): number {
+//   const numbers = input.split("*");
 
-  const first = Number(numbers[0]);
-  const second = Number(numbers[1]);
+//   const first = Number(numbers[0]);
+//   const second = Number(numbers[1]);
 
-  return first * second;
+//   return first * second;
+// }
+
+// const result = multiplyNumbers("6*7");
+// console.log(result);
+
+
+
+//S-Task
+
+function findMissingAge(ages: number[]): number {
+  const max = Math.max(...ages);
+
+  for (let i = 1; i <= max; i++) {
+    if (!ages.includes(i)) {
+      return i;
+    }
+  }
+
+  return -1;
 }
 
-const result = multiplyNumbers("6*7");
-console.log(result);
+console.log(findMissingAge([1, 2, 4, 5])); // 3
+console.log(findMissingAge([2, 3, 4, 5])); // 1
+console.log(findMissingAge([1, 2, 3, 5])); // 4
