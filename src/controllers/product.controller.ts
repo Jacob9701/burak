@@ -6,6 +6,7 @@ import ProductService from "../models/Product.service";
 const productService = new ProductService();
 
 const productController: T = {};
+
 productController.getAllProducts = async (req: Request, res: Response) => {
     try {
         console.log("getAllProducts");
@@ -17,10 +18,7 @@ productController.getAllProducts = async (req: Request, res: Response) => {
     }
 };
 
-productController.createNewProduct = async (
-    req: Request,
-    res: Response
-) => {
+productController.createNewProduct = async (req: Request, res: Response) => {
     try {
         console.log("createNewProduct");
     } catch (err) {
@@ -30,10 +28,7 @@ productController.createNewProduct = async (
     }
 };
 
-productController.updateChosenProduct = async (
-    req: Request,
-    res: Response
-) => {
+productController.updateChosenProduct = async (req: Request, res: Response) => {
     try {
         console.log("updateChosenProduct");
     } catch (err) {
