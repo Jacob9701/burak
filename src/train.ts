@@ -165,18 +165,34 @@
 
 //S-Task
 
-function findMissingAge(ages: number[]): number {
-  const max = Math.max(...ages);
+// function findMissingAge(ages: number[]): number {
+//   const max = Math.max(...ages);
 
-  for (let i = 1; i <= max; i++) {
-    if (!ages.includes(i)) {
-      return i;
-    }
-  }
+//   for (let i = 1; i <= max; i++) {
+//     if (!ages.includes(i)) {
+//       return i;
+//     }
+//   }
 
-  return -1;
+//   return -1;
+// }
+
+// console.log(findMissingAge([1, 2, 4, 5])); // 3
+// console.log(findMissingAge([2, 3, 4, 5])); // 1
+// console.log(findMissingAge([1, 2, 3, 5])); // 4
+
+
+//T-Task
+
+function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+  const result = [...arr1, ...arr2];
+
+  result.sort((a, b) => a - b);
+
+  return result;
 }
 
-console.log(findMissingAge([1, 2, 4, 5])); // 3
-console.log(findMissingAge([2, 3, 4, 5])); // 1
-console.log(findMissingAge([1, 2, 3, 5])); // 4
+const temperaturesWeek1 = [12, 18, 25, 30];
+const temperaturesWeek2 = [15, 20, 28, 35];
+
+console.log(mergeSortedArrays(temperaturesWeek1, temperaturesWeek2));
