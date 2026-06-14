@@ -3,15 +3,32 @@
     <body>
         <div>
             <div>PRODUCTS PAGE</div>
+
             <div>
                 <%= member.memberNick %>
             </div>
 
+            <form action="/admin/product/create" method="POST" enctype="multipart/form-data">
+                <input type="text" name="productName" placeholder="productName" />
+                <input type="number" name="productPrice" placeholder="productPrice" />
+                <input type="number" name="productLeftCount" placeholder="productLeftCount" />
+                <input type="text" name="productCollection" placeholder="productCollection" />
+                <input type="text" name="productDesc" placeholder="productDesc" />
+
+                <input type="file" name="productImages" multiple />
+
+                <button type="submit">Create Product</button>
+            </form>
+
             <% products.map((value, key)=> { %>
                 <p>
-                    <%= value.productName %> - <%= value.productSize %>
+                    <%= value.productName %> -
+                        <%= value.productSize %>
                 </p>
+
+                <img src="/<%= value.productImages[0] %>" width="200" height="200" />
                 <% }) %>
+
         </div>
     </body>
 

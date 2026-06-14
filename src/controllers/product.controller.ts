@@ -34,13 +34,15 @@ productController.createNewProduct = async (
 ) => {
     try {
         console.log("createNewProduct");
-        if (!req.files?.length)
+
+        console.log("req.body:", req.body);
+        console.log("req.file:", req.file);
+
+        if (!req.file)
             throw new Errors(HttpCode.INTERNAL_SERVER_ERROR, Message.CREATE_FAILED);
 
         const data: ProductInput = req.body;
-        data.productImages = req.files?.map((ele) => {
-            return ele.path.replace(/\\/g, "/");
-        });
+        data.productImages = [req.file.path.replace(/\\/g, "/")];
 
         await productService.createNewProduct(data);
 

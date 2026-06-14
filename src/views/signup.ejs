@@ -2,13 +2,46 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
 </head>
 
 <body>
     <div>SIGNUP PAGE</div>
+
+    <form action="/admin/signup" method="POST" enctype="multipart/form-data">
+
+        <div>
+            <input type="text" name="memberNick" placeholder="memberNick" />
+        </div>
+
+        <br />
+
+        <div>
+            <input type="text" name="memberPhone" placeholder="memberPhone" />
+        </div>
+
+        <br />
+
+        <div>
+            <input type="password" name="memberPassword" placeholder="memberPassword" />
+        </div>
+
+        <br />
+
+        <div>
+            <input type="file" name="memberImage" />
+        </div>
+
+        <br />
+
+        <button type="submit">
+            Signup
+        </button>
+
+    </form>
+
 </body>
 
 </html>
