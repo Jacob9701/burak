@@ -12,14 +12,17 @@ const productController: T = {};
 
 /** SSR */
 
-productController.getAllProducts = async (req: Request, res: Response) => {
+productController.getAllProducts = async (req: AdminRequest, res: Response) => {
     try {
         console.log("getAllProducts");
 
         const data = await productService.getAllProducts();
         console.log("data:", data);
 
-        res.render("products", { products: data });
+        res.render("products", {
+            products: data,
+            member: req.session.member,
+        });
     } catch (err) {
         console.log("Error, getAllProducts:", err);
 
