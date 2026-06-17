@@ -184,15 +184,34 @@
 
 //T-Task
 
-function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
-  const result = [...arr1, ...arr2];
+// function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+//   const result = [...arr1, ...arr2];
 
-  result.sort((a, b) => a - b);
+//   result.sort((a, b) => a - b);
 
-  return result;
+//   return result;
+// }
+
+// const temperaturesWeek1 = [12, 18, 25, 30];
+// const temperaturesWeek2 = [15, 20, 28, 35];
+
+// console.log(mergeSortedArrays(temperaturesWeek1, temperaturesWeek2));
+
+//U-TASK
+
+
+function countEvens(num: number): number {
+  let count = 0;
+
+  for (let i = 0; i <= num; i++) {
+    if (i % 2 === 0) {
+      count++;
+    }
+  }
+
+  return count;
 }
 
-const temperaturesWeek1 = [12, 18, 25, 30];
-const temperaturesWeek2 = [15, 20, 28, 35];
-
-console.log(mergeSortedArrays(temperaturesWeek1, temperaturesWeek2));
+console.log(countEvens(8));
+console.log(countEvens(11));
+console.log(countEvens(20));
