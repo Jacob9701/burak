@@ -79,22 +79,27 @@ class MemberService {
             )
             .exec();
 
-        if (!member)
-            throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
-
         const isMatch = await bcrypt.compare(
             input.memberPassword,
             member.memberPassword
         );
 
         if (!isMatch) {
-            throw new Errors(
-                HttpCode.UNAUTHORIZED,
-                Message.WRONG_PASSWORD
-            );
+            throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
         }
 
         return await this.memberModel.findById(member._id).exec();
+    }
+
+    public async getUsers(): Promise<Member[]> {
+        const result = await this.memberModel
+            .find({ memberType: MemberType.USER })
+            .exec();
+
+        if (!result)
+            throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+        return result;
     }
 }
 
