@@ -11,8 +11,10 @@ const restaurantController: T = {};
 restaurantController.goHome = (req: Request, res: Response) => {
     try {
         console.log("goHome");
-        res.render("home");
-        // send | json | redirect | end | render
+
+        res.render("home", {
+            member: (req.session as any)?.member,
+        });
     } catch (err) {
         console.log("Error, goHome:", err);
     }
