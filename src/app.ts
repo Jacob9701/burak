@@ -9,6 +9,7 @@ import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
 
 const MongoDBStore = ConnectMongoDB(session);
+
 const store = new MongoDBStore({
     uri: String(process.env.MONGO_URL),
     collection: "sessions",
@@ -16,8 +17,10 @@ const store = new MongoDBStore({
 
 /** 1-ENTRANCE **/
 const app = express();
+
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan(MORGAN_FORMAT));
@@ -34,6 +37,12 @@ app.use(
         saveUninitialized: true,
     })
 );
+
+/** MEMBER GLOBAL **/
+app.use((req: any, res: any, next: any) => {
+    res.locals.member = req.session?.member;
+    next();
+});
 
 /** 3-VIEWS **/
 app.set("views", path.join(__dirname, "views"));
