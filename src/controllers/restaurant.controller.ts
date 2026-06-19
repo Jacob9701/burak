@@ -8,6 +8,7 @@ import Errors, { HttpCode, Message } from "../libs/Errors";
 const memberService = new MemberService();
 
 const restaurantController: T = {};
+
 restaurantController.goHome = (req: Request, res: Response) => {
     try {
         console.log("goHome");
@@ -62,7 +63,7 @@ restaurantController.processSignup = async (
         const message =
             err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
         res.send(
-            `<script>alert("${message}"); window.location.replace('admin/signup')</script>`
+            `<script>alert("${message}"); window.location.replace('/admin/signup')</script>`
         );
     }
 };
@@ -86,7 +87,7 @@ restaurantController.processLogin = async (
         const message =
             err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
         res.send(
-            `<script> alert("${message}"); window.location.replace('/admin/login') </script>`
+            `<script>alert("${message}"); window.location.replace('/admin/login') </script>`
         );
     }
 };
@@ -135,11 +136,9 @@ restaurantController.checkAuthSession = async (
     try {
         console.log("checkAuthSession");
         if (req.session?.member)
-            res.send(
-                `<script>alert("${req.session.member.memberNick}") </script>`);
+            res.send(`<script>alert("${req.session.member.memberNick}") </script>`);
         else
-            res.send(
-                `<script>alert("${Message.NOT_AUTHENTICATED}") </script>`);
+            res.send(`<script>alert("${Message.NOT_AUTHENTICATED}") </script>`);
     } catch (err) {
         console.log("Error, checkAuthSession:", err);
         res.send(err);
@@ -157,7 +156,7 @@ restaurantController.verifyRestaurant = (
     } else {
         const message = Message.NOT_AUTHENTICATED;
         res.send(
-            `<script> alert("${message}"); window.location.replace('/admin/login'); </script>`
+            `<script>alert("${message}"); window.location.replace('/admin/login'); </script>`
         );
     }
 };
