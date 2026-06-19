@@ -215,3 +215,23 @@ function countEvens(num: number): number {
 console.log(countEvens(8));
 console.log(countEvens(11));
 console.log(countEvens(20));
+
+
+
+//V-TASK
+
+function countLetters(word: string): object {
+  const result: { [key: string]: number } = {};
+
+  for (const char of word) {
+    if (result[char]) {
+      result[char]++;
+    } else {
+      result[char] = 1;
+    }
+  }
+
+  return result;
+}
+
+console.log(countLetters("banana"));
